@@ -58,13 +58,10 @@ class PicroftGoogleAiyVoicekit(MycroftSkill):
                 self.bus.emit(Message("mycroft.mic.listen"))
             else:
                 self.bus.emit(Message("mycroft.stop"))
-
-    def handle_listener_started(self, message):
+                
+    def handle_boot_finished(self):
         # code to excecute when active listening begins...
         GPIO.output(4, GPIO.HIGH)
-
-    def handle_listener_ended(self, message):
-        GPIO.output(4, GPIO.LOW)
 
 
 def create_skill():
