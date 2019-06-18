@@ -30,10 +30,10 @@ class PicroftGoogleAiyVoicekit(MycroftSkill):
     def initialize(self):
         try:
             # pin 23 is the GPIO pin the button is attached to
-            # pin 25 is the GPIO pin the LED light is attached to
+            # pin 4 is the GPIO pin the LED light is attached to
             GPIO.setmode(GPIO.BCM)
             GPIO.setwarnings(False)
-            GPIO.setup(25, GPIO.OUT)
+            GPIO.setup(4, GPIO.OUT)
             GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             pass
         except GPIO.error:
@@ -61,10 +61,10 @@ class PicroftGoogleAiyVoicekit(MycroftSkill):
 
     def handle_listener_started(self, message):
         # code to excecute when active listening begins...
-        GPIO.output(25, GPIO.HIGH)
+        GPIO.output(4, GPIO.HIGH)
 
     def handle_listener_ended(self, message):
-        GPIO.output(25, GPIO.LOW)
+        GPIO.output(4, GPIO.LOW)
 
 
 def create_skill():
